@@ -41,7 +41,6 @@ export class DetailsComponent implements OnInit {
     this.productDetailsService.getProductDetails(this.id).subscribe({
       next: (res) => {
         this.productDetails = res.data;
-        console.log(res);
       }
     })
   }
@@ -53,9 +52,6 @@ export class DetailsComponent implements OnInit {
         if(res.status === 'success'){
           this.toastrService.success(res.message, 'Success');
         }
-      },
-      error: (err) => {
-        console.log(err);
       }
     })
   }

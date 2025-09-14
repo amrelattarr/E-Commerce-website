@@ -29,7 +29,6 @@ export class NavbarComponent implements OnInit {
     // Initial login state
     this.isLogin = !!this.authService.decodeToken();
     
-    // Update wishlist count when favList changes
     effect(() => {
       if (isPlatformBrowser(this.id)) {
         const favList = this.wishListService.favListSignal();
@@ -43,11 +42,9 @@ export class NavbarComponent implements OnInit {
     this.flowbiteService.loadFlowbite(() => initFlowbite());
   
     if (isPlatformBrowser(this.id)) {
-      // Reset counters first
       this.wishlistCount = 0;
       this.cartService.countNumber.set(0);
   
-      // ✅ Only load if logged in
       if (this.isLogin) {
         this.loadUserData();
       }
@@ -59,10 +56,8 @@ export class NavbarComponent implements OnInit {
     const token = this.authService.decodeToken();
     if (!token) return;
     
-    // Get cart data
     this.getAllDataCart().subscribe({
       error: (err: any) => {
-        // Handle error silently - user might not have a cart yet
         this.cartService.countNumber.set(0);
       }
     });
@@ -95,7 +90,7 @@ export class NavbarComponent implements OnInit {
         },
         error: (err) => {
           this.cartService.countNumber.set(0);
-          throw err; // Re-throw to be handled by the caller
+          throw err; 
         }
       })
     );

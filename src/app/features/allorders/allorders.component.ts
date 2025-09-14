@@ -29,12 +29,7 @@ export class AllordersComponent implements OnInit {
   getAllOrders():void {
     this.allordersService.getUserOrders(this.token.id).subscribe({
       next:(res)=>{
-        console.log(res);
         this.ordersList = res;
-        
-      },
-      error:(err)=>{
-        console.log(err);
         
       }
     })

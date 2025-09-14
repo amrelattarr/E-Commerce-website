@@ -23,10 +23,6 @@ export class PopularCategoriesComponent implements OnInit {
     return this.categories.getAllCategories().subscribe({
       next: (res) => {
         this.categoriesList = res.data;
-        console.log(this.categoriesList);
-      },
-      error: (err) => {
-        console.error('Error fetching categories:', err);
       }
     });
   }

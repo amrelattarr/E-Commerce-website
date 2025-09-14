@@ -22,11 +22,7 @@ export class BrandsComponent implements OnInit {
   getAllBrands():void {
     this.brandService.getBrands().subscribe({
       next: (response) => {
-        console.log(response.data);
         this.brandsList = response.data;
-      },
-      error: (error) => {
-        console.error('Error fetching brands:', error);
       }
     });
   }
@@ -34,11 +30,7 @@ export class BrandsComponent implements OnInit {
   getSpecificBrandData(id:string):void {
     this.brandService.getSpecificBrand(id).subscribe({
       next: (response) => {
-        console.log(response.data);
         this.singleBrand = response.data;
-      },
-      error: (error) => {
-        console.error('Error fetching specific brand:', error);
       }
     });
   }

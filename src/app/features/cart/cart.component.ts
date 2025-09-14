@@ -30,11 +30,7 @@ export class CartComponent implements OnInit {
   getLoggedUserData():void{
     this.cartService.getLoggedUserCart().subscribe({
       next:(res)=>{
-        console.log(res.data)
         this.cartDetails = res.data;
-      },
-      error:(err)=>{
-        console.log(err)
       }
     })
 
@@ -43,12 +39,8 @@ export class CartComponent implements OnInit {
   removeItem(id:string):void{
     this.cartService.removeSpecificCartItem(id).subscribe({
       next:(res)=>{
-        console.log(res)
         this.cartDetails = res.data;
         this.cartService.countNumber.set(res.numOfCartItems);
-      },
-      error:(err)=>{
-        console.log(err)
       }
     })
   }
@@ -56,12 +48,8 @@ export class CartComponent implements OnInit {
   updateCount(id:string, count:number):void{
     this.cartService.updateCartCount(id, count).subscribe({
       next:(res)=>{
-        console.log(res)
         this.cartDetails = res.data;
         this.cartService.countNumber.set(res.numOfCartItems);
-      },
-      error:(err)=>{
-        console.log(err)
       }
     })
   }
@@ -69,12 +57,8 @@ export class CartComponent implements OnInit {
   clearCart():void{
     this.cartService.clearUserCart().subscribe({
       next:(res)=>{
-        console.log(res)
         this.getLoggedUserData();
         this.cartService.countNumber.set(0);
-      },
-      error:(err)=>{
-        console.log(err)
       }
     })
   }
