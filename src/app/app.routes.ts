@@ -17,6 +17,7 @@ import { SubCategoriesComponent } from './features/categories/components/sub-cat
 import { WishlistComponent } from './features/wishlist/wishlist.component';
 import { AllordersComponent } from './features/allorders/allorders.component';
 import { ForgetpasswordComponent } from './Core/auth/forgetpassword/forgetpassword.component';
+import { ProfileComponent } from './features/profile/profile.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -36,6 +37,7 @@ export const routes: Routes = [
         {path:'allorders', component:AllordersComponent, title: 'All Orders page'},
         {path:'details/:id', component:DetailsComponent, title: 'details page'},
         {path:'checkout/:id', component:CheckoutComponent, title: 'checkout page'},
+        {path:'profile', component:ProfileComponent, title: 'User Profile Page'},
         {path: '**', component: NotfoundComponent, title: 'Not Found page'}
     ]},
 ];

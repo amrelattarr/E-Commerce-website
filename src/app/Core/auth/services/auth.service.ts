@@ -34,7 +34,6 @@ export class AuthService {
     } catch (error) {
       this.logOut();
     }
-
     return token;
   }
 
@@ -48,6 +47,17 @@ export class AuthService {
 
   submitResetPassword(data:object): Observable<any>{
     return this.httpclient.put(environment.baseUrl + 'auth/resetPassword' ,data); 
+  }
+
+
+  // userData----------------------------------
+
+  getUserData():Observable<any>{
+    return this.httpclient.get(environment.baseUrl + 'users/getMe/')
+  }
+
+  updateUserData(data:object):Observable<any>{
+    return this.httpclient.put(environment.baseUrl + 'users/updateMe/' , data)
   }
   
 }
