@@ -16,7 +16,7 @@
         'text-green-500': control?.valid && control?.touched}"
         [for]="idInput" class="main-label">{{labelInput}}</label>
     
-        @if (idInput == 'password' || idInput == 'rePassword') {
+        @if (idInput == 'password' || idInput == 'rePassword' || idInput == 'currentPassword') {
             <span class="absolute top-2/5 end-4 -translate-y-1/2 cursor-pointer">
                 <i 
                     (click)="flag = !flag" 

@@ -50,7 +50,7 @@ export class AuthService {
   }
 
 
-  // userData----------------------------------
+  // ----------------------userData----------------------------------
 
   getUserData():Observable<any>{
     return this.httpclient.get(environment.baseUrl + 'users/getMe/')
@@ -58,6 +58,10 @@ export class AuthService {
 
   updateUserData(data:object):Observable<any>{
     return this.httpclient.put(environment.baseUrl + 'users/updateMe/' , data)
+  }
+
+  changePassword(data:object):Observable<any>{
+    return this.httpclient.put(environment.baseUrl + `users/changeMyPassword` , data)
   }
   
 }

@@ -18,6 +18,7 @@ import { WishlistComponent } from './features/wishlist/wishlist.component';
 import { AllordersComponent } from './features/allorders/allorders.component';
 import { ForgetpasswordComponent } from './Core/auth/forgetpassword/forgetpassword.component';
 import { ProfileComponent } from './features/profile/profile.component';
+import { ResetPasswordComponent } from './features/reset-password/reset-password.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -38,6 +39,7 @@ export const routes: Routes = [
         {path:'details/:id', component:DetailsComponent, title: 'details page'},
         {path:'checkout/:id', component:CheckoutComponent, title: 'checkout page'},
         {path:'profile', component:ProfileComponent, title: 'User Profile Page'},
+        {path:'reset', component:ResetPasswordComponent, title: 'Reset Password Page'},
         {path: '**', component: NotfoundComponent, title: 'Not Found page'}
     ]},
 ];

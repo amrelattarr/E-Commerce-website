@@ -4,10 +4,11 @@ import { User } from './models/user.interface';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RouterLink ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
