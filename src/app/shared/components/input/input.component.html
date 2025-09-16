@@ -27,7 +27,7 @@
         }
 </div>
 @if (control?.errors && control?.touched) {
-    <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+    <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
         <div>
             <ul class="mt-1.5 list-disc list-inside">
                 @if (control?.getError('required')) {
