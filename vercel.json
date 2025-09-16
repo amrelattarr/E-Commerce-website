@@ -2,11 +2,16 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/E-Commerce/**",
-      "use": "@vercel/static"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/E-Commerce/browser",
+        "buildCommand": "npm run build -- --output-hashing=all"
+      }
     }
   ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
   ]
 }
