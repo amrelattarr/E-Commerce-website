@@ -1,10 +1,16 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "dist/E-Commerce/server/server.mjs", "use": "@vercel/node" },
-      { "src": "dist/E-Commerce/browser/**", "use": "@vercel/static" }
-    ],
-    "routes": [
-      { "src": "/.*", "dest": "dist/E-Commerce/server/server.mjs" }
-    ]
-  }  
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/E-Commerce/server/main.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/E-Commerce/browser/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "dist/E-Commerce/server/main.js" }
+  ]
+}
