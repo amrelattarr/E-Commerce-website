@@ -8,8 +8,8 @@ import { environment } from '../../../../environments/environment.development';
 })
 export class BrandService {
   private readonly httpClient = inject(HttpClient);
-  getBrands(): Observable<any> {
-    return this.httpClient.get(environment.baseUrl + 'brands');
+  getBrands(pageNumber:number = 1): Observable<any> {
+    return this.httpClient.get(environment.baseUrl + `brands?page=${pageNumber}`);
   }
 
   getSpecificBrand(id:string): Observable<any> {

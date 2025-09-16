@@ -32,9 +32,6 @@ export class ProductsComponent implements OnInit {
         this.pageSize = response.metadata.limit;
         this.p= response.metadata.currentPage;
         this.total = response.results;
-      },
-      error: (error) => {
-        console.error('Error fetching products:', error);
       }
     });
   }

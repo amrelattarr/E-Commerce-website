@@ -10,4 +10,9 @@
 }
 .animate-fadeIn {
     animation: fadeIn 0.3s ease-out;
-}  
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background: #0aad0a;
+    border-radius: 5px;
+}
