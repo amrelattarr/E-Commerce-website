@@ -42,11 +42,7 @@
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css"
             ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "server": "src/main.server.ts"
           },
           "configurations": {
             "production": {
@@ -92,6 +88,75 @@
         },
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
+        },
+        "server": {
+          "builder": "@angular/build:server",
+          "options": {
+            "outputPath": "dist/E-Commerce/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "outputHashing": "media",
+            "fileReplacements": [
+              {
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }
+            ],
+            "sourceMap": true,
+            "optimization": true
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "sourceMap": false,
+              "optimization": true
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@angular/ssr:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "E-Commerce:build:production",
+              "serverTarget": "E-Commerce:server:production"
+            },
+            "development": {
+              "browserTarget": "E-Commerce:build:development",
+              "serverTarget": "E-Commerce:server:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "ssr": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "browser": "E-Commerce:build:production",
+            "outputPath": "dist/E-Commerce",
+            "ssr": {
+              "entry": "server.ts"
+            },
+            "server": {
+              "outputPath": "dist/E-Commerce/server",
+              "main": "server.ts"
+            }
+          }
         },
         "test": {
           "builder": "@angular/build:karma",
