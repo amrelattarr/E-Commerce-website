@@ -2,15 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/E-Commerce/server/main.js",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "dist/E-Commerce/browser/**/*",
+      "src": "dist/E-Commerce/**",
       "use": "@vercel/static"
     }
   ],
-  "routes": [
-    { "src": "/(.*)", "dest": "dist/E-Commerce/server/main.js" }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
