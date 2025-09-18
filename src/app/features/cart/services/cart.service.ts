@@ -33,8 +33,12 @@ export class CartService {
     return this.httpClient.delete(environment.baseUrl + `cart`);
   }
 
-  checkOutSession(id:string | null , data:object): Observable<any> {
-    return this.httpClient.post(environment.baseUrl + `orders/checkout-session/${id}?url=http://localhost:4200` , data);
+  checkOutSession(id: string | null, data: object): Observable<any> {
+    const currentOrigin = window.location.origin; 
+    return this.httpClient.post(
+      `${environment.baseUrl}orders/checkout-session/${id}?url=${currentOrigin}`,
+      data
+    );
   }
 
   createCashOrder(id:string | null , data:object):Observable<any> {
